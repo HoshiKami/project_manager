@@ -6,7 +6,7 @@
 # display every command and it sintax
 # DISCLAIMER: Project_type argument only suports the keyword "python" (this will change for future versions)
 #
-# to execute the program open a terminal page and type the following:
+# to execute the program open a terminal window and type the following:
 # 
 # 1. "cd <Path_of_this_folder>"
 # 2. "python ProjectManager.py"
