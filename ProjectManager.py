@@ -27,26 +27,27 @@ try:
                 new_dir.mkdir(exist_ok=True)
                 pack_dir = new_dir / f"{data[1]}_lib"
                 pack_dir.mkdir(exist_ok=True)
-                import module_pm.ProjectTypes
                 if data[3] == "python":
-                    module_pm.ProjectTypes.PyProj()
-                elif data[3] == "c":
-                    module_pm.ProjectTypes.CProj()
-                elif data[3] == "javascript":
-                    module_pm.ProjectTypes.JSProj()
-                print(">> Project created succesfully")
+                    main_file = open(f"{new_dir}/{data[4]}.py", "w+")
+                    pack_file = open(f"{pack_dir}/__init__.py","w+")
+                    main_file,pack_file.write("")
+                    if data[5] != "":
+                        main_file.write(f"import {data[5]}")
+                        main_file.close()
+                    pack_file,main_file.close()
+                    print(">> Project created succesfully")
             else:
-                print(">> Project creation faild\n>>")
+                print("Invalid Input\n")
         elif data[0] == "delete":
             del_path = pathlib.Path(data[1])
             if del_path.is_dir() == True:
                 shutil.rmtree(del_path)
-                print(">> Project Deleted Succsesfully\n>>")
+                print("Project Deleted Succsesfully\n")
         elif data[0] == "help":
             print(">> command guide:\n1. create <name> <path> <project_type> <main_scrpit_name> <module1,module2...>\n2. delete <path>\n3. quit\n")
             getCommands()
         elif data[0] == "quit":
-            print(">> quitting Program...\n>>")
+            print(">> quitting Program...\n")
         else:
             print(">> this command don't exist")
 except IndexError:
